@@ -15,7 +15,7 @@ function baseRoutes() {
 
   router.get('/sign-up', async (req, res, next) => {
     try {
-      res.render('sign-up');
+      res.render('./auth/sign-up');
     } catch (e) {
       next(e);
     }
