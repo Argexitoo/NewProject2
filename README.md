@@ -1,6 +1,4 @@
-# Project's name
-​
-Project 2
+# MeetDog
 ​
 ## Description
 ​
@@ -146,7 +144,7 @@ URls for the project repo and deploy
 ​
 ### Wireframes
 ​
-[InVision with Wireframes](https://balsamiq.cloud/s6a3xr6/p6vrmaf/r2278)
+[InVision with Wireframes](https://balsamiq.cloud/s6a3xr6/p6vrmaf)
 ​
 ### Slides
 ​
