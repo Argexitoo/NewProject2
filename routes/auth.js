@@ -1,8 +1,42 @@
 const bcrypt = require('bcryptjs');
-const router = require('express').Router();
+const express = require('express');
 
-// router.get('/sign-up', (req, res, next) => {
-//   res.render('/sign-up');
-// });
+function authRoutes(){
+      const router = express.Router();
 
-module.exports = baseRoutes;
+    router.get('/sign-up', async (req, res, next) => {
+    try {
+      res.render('./auth/sign-up');
+    } catch (e) {
+      next(e);
+    }
+  });
+
+    router.post('/sign-up', async (req, res, next) => {
+        const { email, password } = req.body;
+            try {
+            res.render('./auth/sign-up');
+            } catch (e) {
+            next(e);
+            }
+  });
+
+
+    router.get('/log-in', async (req, res, next) => {
+    try {
+      res.render('./auth/log-in');
+    } catch (e) {
+      next(e);
+    }
+  });
+
+
+
+
+
+
+
+    return router;
+}
+
+module.exports = authRoutes;

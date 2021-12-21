@@ -13,13 +13,7 @@ function baseRoutes() {
 
   //SIGN UP
 
-  router.get('/sign-up', async (req, res, next) => {
-    try {
-      res.render('sign-up');
-    } catch (e) {
-      next(e);
-    }
-  });
+ 
 
   return router;
 }
