@@ -1,11 +1,17 @@
-<h1>Bienvenido a MeetDog... ¡Haz Log in!</h1>
-
-<form action="/log-in" method="post">
-    <label>Email
-        <input type="email" name="email" placeholder="email" id="email">
-    </label>
-    <Label>Password
-        <input type="password" name="password" placeholder="password" id="password">
-    </Label>
-    <button type="submit">Log in</button>
-</form>
+<div>
+    <h1>Bienvenido a MeetDog... ¡Haz Log in!</h1>
+    <form action="/log-in" method="post">
+        <label>Email <br>
+            <input type="email" name="email" placeholder="email" id="email">
+        </label>
+        <br>
+        <Label>Password <br>
+            <input type="password" name="password" placeholder="password" id="password">
+        </Label><br>
+        <button type="submit">Log in</button>
+    </form>
+    {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+    {{/if}}
+</div>
+<a href="/">Back</a>

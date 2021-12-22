@@ -16,3 +16,25 @@ body {
   font-family: 'Rubik', sans-serif;
   color: var(--dark-grey);
 }
+
+/****** SIGN UP ******/
+div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 50%;
+}
+
+div h1 {
+  font-size: 30px;
+  color: black;
+  position: relative;
+  bottom: 50px;
+}
+
+div button {
+  border: 5px solid black;
+  border-radius: 20px;
+}
+
+/****** LOG IN******/

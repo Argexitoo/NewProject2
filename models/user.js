@@ -5,10 +5,19 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: true,
     unique: true,
+    match: [/^\S+@\S+\.\S+$/, 'Please use a valid email address.'],
   },
-  hashedPassword: {
+  password: {
     type: String,
     required: [true, 'password is required'],
+  },
+  location: {
+    type: [String],
+    required: true,
+  },
+  age: {
+    type: Number,
+    required: true,
   },
 });
 

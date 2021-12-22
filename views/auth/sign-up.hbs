@@ -1,16 +1,27 @@
-<form action="/sign-up" method="get">
-   <label>Email 
-       <input type="email" name="email" placeholder="email" id="email">
-   </label>
-   <Label>Password 
-        <input type="password" name="password" placeholder="password" id="password">
-   </Label>   
-    <Label>Location
-        <input type="password" name="password" placeholder="password" id="password">
-    </Label>
-    <Label>Age
-        <input type="password" name="password" placeholder="password" id="password">
-    </Label>
-   <button type="submit">Sign Up</button>
-</form>
+<form action="/sign-up" method="post">
+    <div>
+        <h1>Sign Up</h1>
+        <label>Email <br>
+            <input type="email" name="email" placeholder="email" id="email">
+        </label>
 
+        <Label>Password <br>
+            <input type="password" name="password" placeholder="password" id="password">
+        </Label>
+
+        <Label>Location <br>
+            <input type="location" name="location" placeholder="location" id="location">
+        </Label>
+
+        <Label>Age <br>
+            <input type="age" name="age" placeholder="age" id="age">
+        </Label> <br>
+        <button type="submit">Sign Up</button>
+</form>
+{{#if errorMessage}}
+<p>{{errorMessage}}</p>
+{{/if}}
+</div>
+
+
+<a href="/">Back</a>

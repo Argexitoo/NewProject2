@@ -4,16 +4,13 @@ function baseRoutes() {
   const router = express.Router();
 
   router.get('/', async (req, res, next) => {
+    const user = req.session.currentUser;
     try {
-      res.render('home.hbs', { name: 'Ironhack' });
+      res.render('home.hbs', { name: user ? user.email : 'Anonimo' });
     } catch (e) {
       next(e);
     }
   });
-
-  //SIGN UP
-
- 
 
   return router;
 }

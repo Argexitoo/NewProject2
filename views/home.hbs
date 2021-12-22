@@ -1,31 +1,5 @@
+<h1>HOME!!!</h1>
 
-if (email === '' || password === '') {
-res.render('sign-up', {
-errorMessage: 'Please enter both, email and password to sign up.'
-});
-return;
-}
-
-User.findOne({email: email})
-.then((user) => {
-if (user) {
-console.log("Usuario Repetido")
-return res.render("sign-up" , {errorMessage: "User already exists"})
-}
-})
-
-const salt = bcrypt.genSaltSync(saltRounds);
-const hashedPassword = bcrypt.hashSync(password, salt)
-
-User.create({
-email,
-hashedPassword,
-})
-.then((user) => {
-console.log("Usuario creado")
-res.redirect("/")
-})
-.catch((error) => {
-console.log("error:",error)
-})
-})
+<p>Welcome {{name}}</p>
+<a href="/log-in">Log in</a>
+<a href="/sign-up">Sign Up</a>
