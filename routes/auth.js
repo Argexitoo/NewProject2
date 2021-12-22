@@ -17,18 +17,16 @@ function authRoutes() {
     const { email, password, location, age } = req.body;
     try {
       if (!email || !password || !location || !age) {
-        res.render('./auth/sign-up', {
+        return res.render('./auth/sign-up', {
           errorMessage: 'Complete all fields',
         });
-        return;
       }
       const validPassword = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,}/;
       if (!validPassword.test(password)) {
-        res.render('auth/sign-up', {
+        return res.render('auth/sign-up', {
           errorMessage:
             'Password needs to have at least 6 chars and must contain at least one number, one lowercase and one uppercase letter.',
         });
-        return;
       }
 
       const userRepeat = await User.findOne({ email: email });
@@ -40,7 +38,6 @@ function authRoutes() {
       const newPassword = bcryptjs.hashSync(password, salt);
 
       const user = await User.create({ email, password: newPassword, location, age });
-      console.log('Usuario creado:', user);
       res.redirect('/');
     } catch (e) {
       next(e);
@@ -58,10 +55,9 @@ function authRoutes() {
     const { email, password } = req.body;
     try {
       if (!email || !password) {
-        res.render('./auth/log-in', {
+        return res.render('./auth/log-in', {
           errorMessage: 'Complete all fields',
         });
-        return;
       }
       const dbUser = await User.findOne({ email });
       if (!dbUser) {
