@@ -51,6 +51,7 @@ function authRoutes() {
       next(e);
     }
   });
+
   router.post('/log-in', async (req, res, next) => {
     const { email, password } = req.body;
     try {
