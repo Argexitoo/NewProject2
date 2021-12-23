@@ -68,7 +68,7 @@ function authRoutes() {
         req.session.currentUser = {
           email,
         };
-        return res.redirect('/');
+        return res.redirect('/profile');
       } else {
         return res.render('./auth/log-in', { errorMessage: 'Invalid Password' });
       }
