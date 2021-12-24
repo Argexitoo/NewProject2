@@ -66,10 +66,8 @@ function authRoutes() {
       }
       const passwordUser = await bcryptjs.compare(password, dbUser.password);
       if (passwordUser) {
-        req.session.currentUser = {
-          email,
-        };
-        return res.redirect('/');
+        req.session.currentUser = dbUser;
+        return res.redirect('/profile');
       } else {
         return res.render('./auth/log-in', { errorMessage: 'Invalid Password' });
       }
