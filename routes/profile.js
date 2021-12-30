@@ -61,8 +61,17 @@ function profileRoutes() {
     const { name, sex, race, size, age } = req.body;
     try {
       const editDog = await Dog.findByIdAndUpdate(id, { name, sex, race, size, age }, { new: true });
-      console.log('error', editDog);
-      res.redirect('/profile-mydog');
+      return res.redirect('/profile-mydog');
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  router.post('/profile-mydog/:id/delete', async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const deleteDog = await Dog.findByIdAndDelete(id);
+      res.redirect('/profile');
     } catch (e) {
       next(e);
     }

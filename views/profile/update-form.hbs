@@ -1,14 +1,17 @@
 <h2>Update the dog</h2>
 <form action="/profile-mydog/{{id}}/edit" method="post">
   <h3>Name</h3>
-  <input type="Name" name="Name" value="{{ this.name }}" />
+  <input type="name" name="name" value="{{ this.name }}" />
   <h3>Sex</h3>
-  <input type="Sex" name="Sex" value="{{ this.sex }}" />
+  <input type="sex" name="sex" value="{{ this.sex }}" />
   <h3>Race</h3>
-  <input type="Race" name="Race" value="{{ this.race }}" />
+  <input type="race" name="race" value="{{ this.race }}" />
   <h3>Size</h3>
-  <input type="Size" name="Size" value="{{ this.size }}" />
+  <input type="size" name="size" value="{{ this.size }}" />
   <h3>Age</h3>
-  <input type="Age" name="Age" value="{{ this.age }}" />
+  <input type="age" name="age" value="{{ this.age }}" />
   <button>Update</button>
+</form>
+<form action="/profile-mydog/{{id}}/delete" method="post">
+  <button>Delete</button>
 </form>
