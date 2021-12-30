@@ -1,13 +1,14 @@
-
 <form action="/profile-mydog" method="get">
-<h1>My Dogs</h1>
+    <h1>My Dogs</h1>
 
-{{#each foundDogs}}
+    {{#each foundDogs}}
+    <p>{{this.name}}</p>
+    <button>
+        <a href="/profile-mydog/{{id}}/edit">Edit</a>
+    </button>
+    {{/each}}
 
-<p>{{this.name}}</p>
-
-{{/each}}
-
-<a href="/profile">Back</a>
-
+    <a href="/profile">Back</a>
 </form>
+
+<form action="/"></form>
