@@ -14,9 +14,9 @@ function authRoutes() {
   });
 
   router.post('/sign-up', async (req, res, next) => {
-    const { email, password, location, age } = req.body;
+    const { email, password, location, age, nickname, name } = req.body;
     try {
-      if (!email || !password || !location || !age) {
+      if (!email || !password || !location || !age || !nickname || !name) {
         return res.render('./auth/sign-up', {
           errorMessage: 'Complete all fields',
         });
@@ -37,7 +37,7 @@ function authRoutes() {
       const salt = bcryptjs.genSaltSync(saltRounds);
       const newPassword = bcryptjs.hashSync(password, salt);
 
-      const user = await User.create({ email, password: newPassword, location, age });
+      const user = await User.create({ email, password: newPassword, location, age, nickname, name });
       res.redirect('/');
     } catch (e) {
       next(e);
@@ -74,6 +74,14 @@ function authRoutes() {
     } catch (e) {
       next(e);
     }
+  });
+  router.get('/log-out', async (req, res, next) => {
+    if (req.session) {
+      req.session.auth = null;
+      res.clearCookie('auth');
+      req.session.destroy(function() {});
+    }
+    res.redirect('/');
   });
   return router;
 }

@@ -1,12 +1,16 @@
 const express = require('express');
 const Dog = require('../models/dog');
+const User = require('../models/user');
 
 function profileRoutes() {
   const router = express.Router();
 
-  router.get('/profile', async (req, res, next) => {
+router.get('/mydogs', async (req, res, next) => {
+
+    const userId = req.session.currentUser._id;
     try {
-      res.render('./profile/profile');
+      const foundDogs = await Dog.find({ owner: userId });
+      res.render('./profile/mydogs', { foundDogs });
     } catch (e) {
       next(e);
     }
@@ -30,21 +34,12 @@ function profileRoutes() {
         });
       }
       const dog = await Dog.create({ name, sex, race, size, age, owner: userId });
-      res.redirect('/profile');
+      res.redirect('/mydogs');
     } catch (e) {
       next(e);
     }
   });
 
-  router.get('/profile-mydog', async (req, res, next) => {
-    const userId = req.session.currentUser._id;
-    try {
-      const foundDogs = await Dog.find({ owner: userId });
-      res.render('./profile/profile-mydog', { foundDogs });
-    } catch (e) {
-      next(e);
-    }
-  });
 
   router.get('/profile-mydog/:id/edit', async (req, res, next) => {
     const { id } = req.params;
@@ -61,21 +56,33 @@ function profileRoutes() {
     const { name, sex, race, size, age } = req.body;
     try {
       const editDog = await Dog.findByIdAndUpdate(id, { name, sex, race, size, age }, { new: true });
-      return res.redirect('/profile-mydog');
+      return res.redirect('/mydogs');
     } catch (e) {
       next(e);
     }
   });
 
-  router.post('/profile-mydog/:id/delete', async (req, res, next) => {
+  router.get('/profile-mydog/:id/delete', async (req, res, next) => {
     const { id } = req.params;
     try {
       const deleteDog = await Dog.findByIdAndDelete(id);
-      res.redirect('/profile');
+      res.redirect('/mydogs');
     } catch (e) {
       next(e);
     }
   });
+
+  router.get('/profile', async (req, res, next) => {
+    const user = req.session.currentUser;
+    try {
+      const foundDogs = await Dog.find({ owner: user._id });
+      res.render('./profile/profile', { user, foundDogs });
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  
 
   return router;
 }

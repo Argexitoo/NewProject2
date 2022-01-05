@@ -6,7 +6,7 @@ function baseRoutes() {
   router.get('/', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-      res.render('home.hbs', { name: user ? user.email : 'Anonimo' });
+      res.render('index.hbs', { name: user ? user.email : 'Anonimo' });
     } catch (e) {
       next(e);
     }

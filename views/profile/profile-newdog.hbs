@@ -1,31 +1,56 @@
-<h1>New Dog</h1>
-
-<form action="/profile-newdog" method="post">
-
-    <label>Name <br>
-        <input type="name" name="name" placeholder="name" id="name">
-    </label>
-
-    <Label>Sex <br>
-        <input type="sex" name="sex" placeholder="sex" id="sex">
-    </Label>
-
-    <Label>Race <br>
-        <input type="race" name="race" placeholder="race" id="race">
-    </Label>
-
-    <Label>Size <br>
-        <input type="size" name="size" placeholder="size" id="size">
-    </Label> <br>
-
-    <Label>Age <br>
-        <input type="age" name="age" placeholder="age" id="age">
-    </Label> <br>
-
-
-    <button type="submit">Add dog</button>
-
-</form>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+            <li class="nav-item">
+                <a class="nav-link" href="/mydogs">My dogs</a>
+            </li>
+            <li class="nav-item active">
+                <a class="nav-link active" href="/profile-newdog">Create a new dog</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile-newdog">Create new meeting</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/profile">Profile</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/log-out">Log-out</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<main role="main" class="inner cover">
+    <div class="text-center pt-3">
+        <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+            <form class="form-signin" action="/profile-newdog" method="post">
+                <img class="mb-4"
+                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/1024px-Creative-Tail-Animal-dog.svg.png"
+                    alt="" width="172" height="172">
+                <h1 class="h3 mb-3 font-weight-normal">Add a new dog!</h1>
+                <input type="text" name="name" class="form-control" placeholder="Name" required="">
+                <input type="text" name="sex" class="form-control" placeholder="Sex" required="">
+                <input type="text" name="race" class="form-control" placeholder="Race" required="">
+                <input type="text" name="size" class="form-control" placeholder="Size" required="">
+                <input type="number" name="age" class="form-control" placeholder="Age" required="">
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
+                {{#if errorMessage}}
+                <p>{{errorMessage}}</p>
+                {{/if}}
+            </form>
+        </div>
+    </div>
+</main>
+<footer class="mastfoot mt-auto">
+    <div class="inner">
+        <p>
+        <footer>&copy; Copyright 2022 HTML.am</footer>
+        </p>
+    </div>
+</footer>
 
 {{#if errorMessage}}
 <p>{{errorMessage}}</p>
