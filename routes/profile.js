@@ -5,8 +5,7 @@ const User = require('../models/user');
 function profileRoutes() {
   const router = express.Router();
 
-router.get('/mydogs', async (req, res, next) => {
-
+  router.get('/mydogs', async (req, res, next) => {
     const userId = req.session.currentUser._id;
     try {
       const foundDogs = await Dog.find({ owner: userId });
@@ -39,7 +38,6 @@ router.get('/mydogs', async (req, res, next) => {
       next(e);
     }
   });
-
 
   router.get('/profile-mydog/:id/edit', async (req, res, next) => {
     const { id } = req.params;
@@ -82,7 +80,30 @@ router.get('/mydogs', async (req, res, next) => {
     }
   });
 
-  
+  router.get('/profile/:id/edit', async (req, res, next) => {
+    const user = req.session.currentUser._id;
+    try {
+      const editUser = await User.findById(user);
+      res.render('./profile/update-form-user', { user, editUser });
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  router.post('/profile/:id/edit', async (req, res, next) => {
+    const user = req.session.currentUser._id;
+    const { email, password, nickname, name, location, age } = req.body;
+    try {
+      const editUser = await User.findByIdAndUpdate(
+        user,
+        { email, password, nickname, name, location, age },
+        { new: true },
+      );
+      return res.redirect('/profile');
+    } catch (e) {
+      next(e);
+    }
+  });
 
   return router;
 }

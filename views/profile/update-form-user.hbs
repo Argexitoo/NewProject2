@@ -1,0 +1,51 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link active" href="/mydogs">My dogs</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile-newdog">Create a new dog</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile-newdog">Create new meeting</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/profile">Profile</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="/log-out">Log-out</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+<main role="main" class="inner cover">
+  <div class="text-center pt-3">
+    <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
+      <form class="form-signin" action="/profile/{{id}}/edit" method="post">
+        <img class="mb-4"
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/1024px-Creative-Tail-Animal-dog.svg.png"
+          alt="" width="172" height="172">
+        <h1 class="h3 mb-3 font-weight-normal">Update your profile!</h1>
+        <h3>Email</h3><input type="text" name="email" class="form-control" value="{{editUser.email}}">
+        <h3>Password</h3><input type="password" name="password" class="form-control" value="{{editUser.password}}">
+        <h3>Nickname</h3><input type="text" name="nickname" class="form-control" value="{{editUser.nickname}}">
+        <h3>Name</h3><input type="text" name="name" class="form-control" value="{{editUser.name}}">
+        <h3>Location</h3><input type="text" name="location" class="form-control" value="{{editUser.location}}">
+        <h3>Age</h3><input type="number" name="age" class="form-control" value="{{editUser.age}}">
+        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+      </form>
+    </div>
+  </div>
+</main>
+<footer class="mastfoot mt-auto">
+  <div class="inner">
+    <p>
+    <footer>&copy; Copyright 2022 HTML.am</footer>
+    </p>
+  </div>
+</footer>
