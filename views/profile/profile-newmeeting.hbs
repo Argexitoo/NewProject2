@@ -29,16 +29,16 @@
 <main role="main" class="inner cover">
     <div class="text-center pt-3">
         <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-            <form class="form-signin" action="/profile-newdog" method="post">
+            <form class="form-signin" action="/profile-newmeeting" method="post">
                 <img class="mb-4"
-                    src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/1024px-Creative-Tail-Animal-dog.svg.png"
+                    src="https://cdn2.iconfinder.com/data/icons/dogs-vol-2/320/dog-events-512.png"
                     alt="" width="172" height="172">
-                <h1 class="h3 mb-3 font-weight-normal">Add a new dog!</h1>
+                <h1 class="h3 mb-3 font-weight-normal">Add a new meeeting!</h1>
                 <input type="text" name="name" class="form-control" placeholder="Name" required="">
-                <input type="text" name="sex" class="form-control" placeholder="Sex" required="">
-                <input type="text" name="race" class="form-control" placeholder="Race" required="">
-                <input type="text" name="size" class="form-control" placeholder="Size" required="">
-                <input type="number" name="age" class="form-control" placeholder="Age" required="">
+                <input type="text" name="location" class="form-control" placeholder="Location" required="">
+                <input type="date" name="date" class="form-control" placeholder="Date" required="">
+                <input type="text" name="hour" class="form-control" placeholder="Hour" required="">
+                <input type="text" name="description" class="form-control" placeholder="Description" required="">
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
                 {{#if errorMessage}}
                 <p>{{errorMessage}}</p>

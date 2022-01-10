@@ -30,16 +30,16 @@
 <main role="main" class="inner cover">
   <div class="text-center pt-3">
     <div class="cover-container d-flex h-100 p-3 mx-auto flex-column">
-      <form class="form-signin" action="/profile-mydog/{{id}}/edit" method="post">
+      <form class="form-signin" action="/profile-mymeeting/{{id}}/edit" method="post">
         <img class="mb-4"
-          src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/1b/Creative-Tail-Animal-dog.svg/1024px-Creative-Tail-Animal-dog.svg.png"
+          src="https://cdn2.iconfinder.com/data/icons/dogs-vol-2/320/dog-events-512.png"
           alt="" width="172" height="172">
-        <h1 class="h3 mb-3 font-weight-normal">Update your dog!</h1>
-        <h3>Name</h3><input type="text" name="name" class="form-control" value="{{editDog.name}}" required="">
-        <h3>Sex</h3><input type="text" name="sex" class="form-control" value="{{editDog.sex}}" required="">
-        <h3>Race</h3><input type="text" name="race" class="form-control" value="{{editDog.race}}" required="">
-        <h3>Size</h3><input type="text" name="size" class="form-control" value="{{editDog.size}}" required="">
-        <h3>Age</h3><input type="number" name="age" class="form-control" value="{{editDog.age}}" required="">
+        <h1 class="h3 mb-3 font-weight-normal">Update your meeting!</h1>
+        <h3>Name</h3><input type="text" name="name" class="form-control" value="{{editMeeting.name}}" required="">
+        <h3>Location</h3><input type="text" name="location" class="form-control" value="{{editMeeting.location}}" required="">
+        <h3>Date</h3><input type="date" name="date" class="form-control" value="{{editMeeting.date}}" required="">
+        <h3>Hour</h3><input type="text" name="hour" class="form-control" value="{{editMeeting.hour}}" required="">
+        <h3>Description</h3><input type="text" name="description" class="form-control" value="{{editMeeting.description}}" required="">
         <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
         {{#if errorMessage}}
         <p>{{errorMessage}}</p>
