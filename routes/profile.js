@@ -189,11 +189,12 @@ function profileRoutes() {
     }
   });
 
-  router.get('/allmeetings/:id', async (req, res, next) => {
+  router.get('/meeting/:id', async (req, res, next) => {
     const { id } = req.params;
+    const userId = req.session.currentUser._id;
     try {
       const meeting = await Meeting.findById(id);
-      res.render('./profile/allmeetings', { meeting });
+      res.render('./profile/meeting', { meeting, owner: userId });
     } catch (e) {
       next(e);
     }
