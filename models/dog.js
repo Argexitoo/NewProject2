@@ -8,6 +8,7 @@ const dogSchema = new mongoose.Schema({
   sex: {
     type: String,
     required: true,
+    enum: ['Female', 'Male'],
   },
   race: {
     type: String,
@@ -17,11 +18,11 @@ const dogSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-   age: {
+  age: {
     type: Number,
     required: true,
   },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User' },
 });
 
 const Dog = mongoose.model('Dog', dogSchema);
