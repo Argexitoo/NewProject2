@@ -17,11 +17,11 @@ const meetingSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
-   description: {
+  description: {
     type: String,
     required: true,
   },
-  owner: { type: mongoose.Schema.ObjectId, ref: 'User'}
+  owner: { type: mongoose.Schema.ObjectId, ref: 'User' },
 });
 
 const Meeting = mongoose.model('Meeting', meetingSchema);

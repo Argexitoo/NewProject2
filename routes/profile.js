@@ -2,11 +2,12 @@ const express = require('express');
 const Dog = require('../models/dog');
 const User = require('../models/user');
 const Meeting = require('../models/meeting');
+const isLoggedIn = require('../middlewares');
 
 function profileRoutes() {
   const router = express.Router();
 
-  router.get('/mydogs', async (req, res, next) => {
+  router.get('/mydogs', isLoggedIn, async (req, res, next) => {
     const userId = req.session.currentUser._id;
     try {
       const foundDogs = await Dog.find({ owner: userId });
@@ -81,7 +82,7 @@ function profileRoutes() {
     }
   });
 
-  router.get('/profile/:id/edit', async (req, res, next) => {
+  router.get('/profile/edit', async (req, res, next) => {
     const user = req.session.currentUser._id;
     try {
       const editUser = await User.findById(user);
@@ -91,15 +92,12 @@ function profileRoutes() {
     }
   });
 
-  router.post('/profile/:id/edit', async (req, res, next) => {
-    const user = req.session.currentUser._id;
-    const { email, password, nickname, name, location, age } = req.body;
+  router.post('/profile/edit', async (req, res, next) => {
+    const userId = req.session.currentUser._id;
+    const { email, nickname, name, location, age } = req.body;
     try {
-      const editUser = await User.findByIdAndUpdate(
-        user,
-        { email, password, nickname, name, location, age },
-        { new: true },
-      );
+      const editedUser = await User.findByIdAndUpdate(userId, { email, nickname, name, location, age }, { new: true });
+      req.session.currentUser = editedUser;
       return res.redirect('/profile');
     } catch (e) {
       next(e);
@@ -189,10 +187,10 @@ function profileRoutes() {
 
   router.get('/meeting/:id', async (req, res, next) => {
     const { id } = req.params;
-    const userId = req.session.currentUser._id;
+    const user = req.session.currentUser;
     try {
       const meeting = await Meeting.findById(id);
-      res.render('./profile/meeting', { meeting });
+      res.render('./profile/meeting', { meeting, owner: user });
     } catch (e) {
       next(e);
     }
