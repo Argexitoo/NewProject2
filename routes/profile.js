@@ -173,9 +173,17 @@ function profileRoutes() {
     }
   });
 
+// 
 
-
-
+  router.get('/allmeetings', async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const foundMeetings = await Meeting.find();
+      res.redirect('/allmeetings', { foundMeetings });
+    } catch (e) {
+      next(e);
+    }
+  });
 
 
 
