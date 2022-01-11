@@ -189,6 +189,16 @@ function profileRoutes() {
     }
   });
 
+  router.get('/allmeetings/:id', async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const meeting = await Meeting.findById(id);
+      res.render('./profile/allmeetings', { meeting });
+    } catch (e) {
+      next(e);
+    }
+  });
+
   return router;
 }
 
