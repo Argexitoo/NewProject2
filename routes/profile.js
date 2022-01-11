@@ -156,7 +156,11 @@ function profileRoutes() {
     const { id } = req.params;
     const { name, location, date, hour, description } = req.body;
     try {
-      const editMeeting = await Meeting.findByIdAndUpdate(id, { name, location, date, hour, description }, { new: true });
+      const editMeeting = await Meeting.findByIdAndUpdate(
+        id,
+        { name, location, date, hour, description },
+        { new: true },
+      );
       return res.redirect('/mymeetings');
     } catch (e) {
       next(e);
@@ -173,20 +177,17 @@ function profileRoutes() {
     }
   });
 
-// 
+  //
 
   router.get('/allmeetings', async (req, res, next) => {
     const { id } = req.params;
     try {
       const foundMeetings = await Meeting.find();
-      res.redirect('/allmeetings', { foundMeetings });
+      res.render('./profile/allmeetings', { foundMeetings });
     } catch (e) {
       next(e);
     }
   });
-
-
-
 
   return router;
 }
