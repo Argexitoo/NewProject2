@@ -11,6 +11,8 @@ const baseRoutes = require('./routes/base');
 const authRoutes = require('./routes/auth');
 const profileRoutes = require('./routes/profile');
 const log = require('./middlewares/index');
+const dogRoutes = require('./routes/dog');
+const meetingRoutes = require('./routes/meeting');
 
 handlebars.registerPartials(`${__dirname}/views/partials`);
 
@@ -41,6 +43,8 @@ function setupApp() {
   app.use('/', baseRoutes());
   app.use('/', authRoutes());
   app.use('/', log, profileRoutes());
+  app.use('/', log, dogRoutes());
+  app.use('/', log, meetingRoutes());
 
   app.use((req, res) => {
     res.render('404.hbs');
