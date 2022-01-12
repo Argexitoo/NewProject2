@@ -38,10 +38,42 @@
                     alt="" width="172" height="172">
                 <h1 class="h3 mb-3 font-weight-normal">Add a new dog!</h1>
                 <input type="text" name="name" class="form-control" placeholder="Name" required="">
-                <input type="text" name="sex" class="form-control" placeholder="Sex" required="">
+                <select type="text" name="sex" class="form-control" placeholder="Sex" required="">
+                    <option selected disabled>Sex</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                </select>
                 <input type="text" name="race" class="form-control" placeholder="Race" required="">
-                <input type="text" name="size" class="form-control" placeholder="Size" required="">
-                <input type="number" name="age" class="form-control" placeholder="Age" required="">
+                <select type="text" name="size" class="form-control" placeholder="Size" required="">
+                    <option selected disabled>Size</option>
+                    <option>Small</option>
+                    <option>Medium</option>
+                    <option>Large</option>
+                    <option>Giant</option>
+                </select>
+                <select type="string" name="age" class="form-control" placeholder="Age" required="">
+                    <option selected disabled>Age</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                    <option>11</option>
+                    <option>12</option>
+                    <option>13</option>
+                    <option>14</option>
+                    <option>15</option>
+                    <option>16</option>
+                    <option>17</option>
+                    <option>18</option>
+                    <option>19</option>
+                    <option>20</option>
+                </select>
                 <button class="btn btn-lg btn-primary btn-block" type="submit">Create</button>
                 {{#if errorMessage}}
                 <p>{{errorMessage}}</p>
