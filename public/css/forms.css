@@ -53,10 +53,7 @@
   flex-direction: column;
 }
 
-.nav-profile {
-  display: flex;
-  flex-direction: column;
+.btn-nav {
   position: relative;
-  left: 90px;
-  bottom: 75px;
+  right: 140px;
 }
