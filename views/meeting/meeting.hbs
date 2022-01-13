@@ -18,7 +18,13 @@
         <p>{{meeting.hour}}</p>
         <h3>Description</h3>
         <p>{{meeting.description}}</p>
-
+        <h3>Users joined</h3>
+        <ul>
+            {{#each meeting.usersJoined}}
+            <li>{{this.nickname}}</li>
+            {{/each}}
+        </ul>
+        <a href="/meeting/{{meeting._id}}/join">Join this meeting</a>
         <a href="/allmeetings" class="btn btn-primary">Back</a>
     </div>
 </div>
