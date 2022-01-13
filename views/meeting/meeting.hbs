@@ -21,7 +21,7 @@
         <h3>Users joined</h3>
         <ul>
             {{#each meeting.usersJoined}}
-            <li>{{this.nickname}}</li>
+            <li>{{this.name}}</li>
             {{/each}}
         </ul>
         <a href="/meeting/{{meeting._id}}/join">Join this meeting</a>
