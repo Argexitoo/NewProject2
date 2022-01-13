@@ -39,3 +39,16 @@
   font-size: 55px;
   color: black;
 }
+
+.allmeetings {
+  border: 10px solid red;
+  border-color: red;
+  border-width: 5px;
+  height: 45%;
+  background-color: grey;
+  margin-top: 10px;
+  border-radius: 40px;
+  border-bottom-right-radius: 040px;
+  display: flex;
+  flex-direction: column;
+}
