@@ -22,6 +22,7 @@ const meetingSchema = new mongoose.Schema({
     required: true,
   },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User' },
+  usersJoined: [{ type: mongoose.Schema.ObjectId, ref: 'User' }],
 });
 
 const Meeting = mongoose.model('Meeting', meetingSchema);

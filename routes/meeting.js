@@ -97,6 +97,32 @@ function meetingRoutes() {
     }
   });
 
+  // TRIAL
+  router.post('/meeting/:id/join', async (req, res, next) => {
+    const user = req.session.currentUser;
+    const { id } = req.params;
+    try {
+      const joinMeeting = await Meeting.findById(id);
+      joinMeeting.usersJoined.push(user._id);
+      joinMeeting.save();
+      return res.redirect('/mymeetings');
+    } catch (e) {
+      next(e);
+    }
+  });
+
+  // TRIAL
+  router.get('/joinedmeetings', async (req, res, next) => {
+    const user = req.session.currentUser;
+    try {
+      const allmeetings = await Meeting.find({}).populate('usersJoined');
+      const mymeetings = allmeetings.map(meeting => meeting.usersJoined.includes(user._id));
+      return res.redirect('/mymeetings');
+    } catch (e) {
+      next(e);
+    }
+  });
+
   return router;
 }
 
