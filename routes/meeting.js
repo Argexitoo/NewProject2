@@ -90,21 +90,24 @@ function meetingRoutes() {
     const { id } = req.params;
     const user = req.session.currentUser;
     try {
-      const meeting = await Meeting.findById(id);
+      const meeting = await Meeting.findById(id).populate('usersJoined');
+      console.log(meeting);
       res.render('./meeting/meeting', { meeting, owner: user });
     } catch (e) {
       next(e);
     }
   });
 
-  // TRIAL
-  router.post('/meeting/:id/join', async (req, res, next) => {
+  router.get('/meeting/:id/join', async (req, res, next) => {
     const user = req.session.currentUser;
     const { id } = req.params;
     try {
-      const joinMeeting = await Meeting.findById(id);
-      joinMeeting.usersJoined.push(user._id);
-      joinMeeting.save();
+      const meeting = await Meeting.findById(id);
+      // Comprovem que l'usuari no estigui unit ja
+      if (!meeting.usersJoined.includes(user._id)) {
+        meeting.usersJoined.push(user._id);
+        meeting.save();
+      }
       return res.redirect('/mymeetings');
     } catch (e) {
       next(e);
@@ -115,8 +118,10 @@ function meetingRoutes() {
   router.get('/joinedmeetings', async (req, res, next) => {
     const user = req.session.currentUser;
     try {
-      const allmeetings = await Meeting.find({}).populate('usersJoined');
-      const mymeetings = allmeetings.map(meeting => meeting.usersJoined.includes(user._id));
+      const allmeetings = await Meeting.find({});
+      const mymeetings = allmeetings.filter(meeting => meeting.usersJoined.includes(user._id));
+      // mymeetings objecte que conté els meus meetings
+      console.log(mymeetings);
       return res.redirect('/mymeetings');
     } catch (e) {
       next(e);
