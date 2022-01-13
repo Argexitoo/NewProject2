@@ -38,7 +38,7 @@ function authRoutes() {
       const newPassword = bcryptjs.hashSync(password, salt);
 
       const user = await User.create({ email, password: newPassword, location, age, nickname, name });
-      res.redirect('/');
+      res.redirect('/log-in');
     } catch (e) {
       next(e);
     }
@@ -79,7 +79,7 @@ function authRoutes() {
     if (req.session) {
       req.session.auth = null;
       res.clearCookie('auth');
-      req.session.destroy(function() {});
+      req.session.destroy(function () {});
     }
     res.redirect('/');
   });

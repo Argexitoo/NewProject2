@@ -53,7 +53,33 @@
   flex-direction: column;
 }
 
-.btn-nav {
+.profile {
+  background-color: rgb(16, 110, 164);
+}
+
+.home {
+  background-color: rgb(6, 40, 85);
+  color: white;
+}
+
+.login {
   position: relative;
-  right: 140px;
+  left: 190px;
+  bottom: 10px;
+}
+
+.signup {
+  position: relative;
+  left: 250px;
+  bottom: 50px;
+}
+
+.size {
+  height: 10%;
+}
+
+.img-home {
+  position: relative;
+  right: 250px;
+  bottom: 20px;
 }
