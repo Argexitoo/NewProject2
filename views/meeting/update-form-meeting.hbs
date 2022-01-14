@@ -16,11 +16,11 @@
         <h3>Name</h3><input type="text" name="name" class="form-control" value="{{editMeeting.name}}" required="">
         <h3>Location</h3><input type="text" name="location" class="form-control" value="{{editMeeting.location}}"
           required="">
-        <h3>Date</h3><input type="date" name="date" class="form-control" value="{{editMeeting.date}}" required="">
+        <h3>Date</h3><input type="date" name="date" class="form-control" value="{{editMeeting.date}}">
         <h3>Hour</h3><input type="text" name="hour" class="form-control" value="{{editMeeting.hour}}" required="">
         <h3>Description</h3><input type="text" name="description" class="form-control"
           value="{{editMeeting.description}}" required="">
-        <button class="btn btn-lg btn-primary btn-block" type="submit">Update</button>
+        <button class="btn btn-lg btn-primary btn-block sign-btn-home " type="submit">Update</button>
         {{#if errorMessage}}
         <p>{{errorMessage}}</p>
         {{/if}}
@@ -28,10 +28,3 @@
     </div>
   </div>
 </main>
-<footer class="mastfoot mt-auto">
-  <div class="inner">
-    <p>
-    <footer>&copy; Copyright 2022 HTML.am</footer>
-    </p>
-  </div>
-</footer>

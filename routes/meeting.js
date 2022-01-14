@@ -122,7 +122,7 @@ function meetingRoutes() {
       const mymeetings = allmeetings.filter(meeting => meeting.usersJoined.includes(user._id));
       // mymeetings objecte que conté els meus meetings
       console.log(mymeetings);
-      return res.redirect('/mymeetings', { mymeetings });
+      return res.redirect('/mymeetings');
     } catch (e) {
       next(e);
     }
