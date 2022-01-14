@@ -1,27 +1,38 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <ul class="navbar-nav">
+        <a class="nav-link" href="/allmeetings">
+            <img src="https://cdn-icons-png.flaticon.com/128/2879/2879564.png" width="40px" alt="">
+        </a>
+    </ul>
+    </div>
+</nav>
 <div class="card" style="width: 24rem;">
-    <img src="https://image.shutterstock.com/image-vector/people-playing-games-dog-pets-260nw-1711634203.jpg"
-        class="card-img-top" alt="img">
-    <div class="card-body">
-        <h5 class="card-title">{{meeting.name}}</h5>
-        <p class="card-text">
-        <h3>Who created this meeting:</h3>
-        <p>{{owner.name}}</p>
-        <h3>Location:</h3>
-        <p>{{meeting.location}}</p>
-        <h3>Date:</h3>
-        <p>{{meeting.date}}</p>
-        <h3>Time</h3>
-        <p>{{meeting.hour}}</p>
-        <h3>Description</h3>
-        <p>{{meeting.description}}</p>
-        <h3>Users joined</h3>
-        <ul>
-            {{#each meeting.usersJoined}}
-            <li>{{this.name}}</li>
-            {{/each}}
-        </ul>
-        <a href="/meeting/{{meeting._id}}/join">Join this meeting</a>
-        <a href="/allmeetings" class="btn btn-primary">Back</a>
+    <img src="https://media.istockphoto.com/photos/stock-image-of-dogs-in-the-park-picture-id486644823?k=20&m=486644823&s=612x612&w=0&h=7_2F3OSh6Aj7YCRSyS4qn9Crl1qrJCoukl7Q2oEP1I4="
+        class=alt=" img" width="80%">
+    <div class="card-meetings">
+        <div class="card-body">
+            <h5 class="card-title">{{meeting.name}}</h5>
+            <p class="card-text">
+            <h3>Who created this meeting:</h3>
+            <p>{{owner.name}}</p>
+            <h3>Location:</h3>
+            <p>{{meeting.location}}</p>
+            <h3>Date:</h3>
+            <p>{{meeting.date}}</p>
+            <h3>Time</h3>
+            <p>{{meeting.hour}}</p>
+            <h3>Description</h3>
+            <p>{{meeting.description}}</p>
+            <h3>Users joined</h3>
+            <ul>
+                {{#each meeting.usersJoined}}
+                <li>{{this.name}}</li>
+                {{/each}}
+            </ul>
+            <button type="button" class="btn-enter">
+                <a href="/meeting/{{meeting._id}}/join">Join this meeting</a>
+            </button>
+        </div>
     </div>
 </div>
 <img src="https://blupet.es/wp-content/uploads/2020/12/anuncios-de-comida-para-perros.png" width="100%" alt="">
