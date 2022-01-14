@@ -11,6 +11,10 @@ const userSchema = new mongoose.Schema({
     type: String,
     required: [true, 'password is required'],
   },
+  password2: {
+    type: String,
+    required: [true, 'password is required'],
+  },
   nickname: {
     type: String,
     required: true,

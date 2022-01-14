@@ -14,7 +14,7 @@ function authRoutes() {
   });
 
   router.post('/sign-up', async (req, res, next) => {
-    const { email, password, location, age, nickname, name } = req.body;
+    const { email, password, password2, location, age, nickname, name } = req.body;
     try {
       if (!email || !password || !location || !age || !nickname || !name) {
         return res.render('./auth/sign-up', {
@@ -29,6 +29,12 @@ function authRoutes() {
         });
       }
 
+      if (password !== password2) {
+        res.render('auth/sign-up', {
+          errorMessage: 'Password not identical',
+        });
+      }
+
       const userRepeat = await User.findOne({ email: email });
       if (userRepeat) {
         return res.render('auth/sign-up', { errorMessage: 'User already taken' });
@@ -37,7 +43,7 @@ function authRoutes() {
       const salt = bcryptjs.genSaltSync(saltRounds);
       const newPassword = bcryptjs.hashSync(password, salt);
 
-      const user = await User.create({ email, password: newPassword, location, age, nickname, name });
+      const user = await User.create({ email, password: newPassword, password2, location, age, nickname, name });
       res.redirect('/log-in');
     } catch (e) {
       next(e);
