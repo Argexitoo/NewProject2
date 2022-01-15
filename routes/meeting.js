@@ -108,7 +108,7 @@ function meetingRoutes() {
         meeting.usersJoined.push(user._id);
         meeting.save();
       }
-      return res.redirect('/mymeetings');
+      return res.redirect('/allmeetings');
     } catch (e) {
       next(e);
     }
