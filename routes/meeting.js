@@ -10,8 +10,10 @@ function meetingRoutes() {
   router.get('/mymeetings', async (req, res, next) => {
     const userId = req.session.currentUser._id;
     try {
-      const foundMeetings = await Meeting.find({ owner: userId });
-      res.render('./meeting/mymeetings', { foundMeetings });
+      const allmeetings = await Meeting.find({});
+      const myMeetings = await Meeting.find({ owner: userId });
+      const joinedMeetings = allmeetings.filter(meeting => meeting.usersJoined.includes(userId));
+      res.render('./meeting/mymeetings', { myMeetings, joinedMeetings });
     } catch (e) {
       next(e);
     }
