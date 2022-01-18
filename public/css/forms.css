@@ -107,7 +107,8 @@
 }
 
 .meeting-size {
-  font-size: 10px;
+  font-size: 15px;
+  margin-top: 5px;
 }
 
 .card-meeting {
@@ -115,14 +116,18 @@
   transition: 0.3s;
   border-radius: 5px;
   height: 35%;
-  background-image: url(https://t1.uc.ltmcdn.com/images/8/1/0/img_como_organizar_una_excursion_a_la_montana_20018_600.jpg);
+  background-image: url(https://besthqwallpapers.com/Uploads/28-9-2018/66988/thumb2-golden-retriever-labrador-brown-dog-gray-background-pets.jpg);
   background-repeat: no-repeat;
   background-size: cover;
   color: white;
+  font-size: 16px;
+  margin-bottom: 10px;
 }
 
 .btn-enter {
-  border-radius: 5px;
+  border-radius: 110px;
+  border:20px blue;
+  font-size: large;
 }
 
 .card-meetings {
@@ -140,4 +145,8 @@
   background-size: cover;
   color: white;
   opacity: 90%;
+}
+
+.img-circle {
+  border-radius: 50%;
 }
