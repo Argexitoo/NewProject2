@@ -149,10 +149,10 @@
 }
 
 .bg-meeting {
-  background-image: url(https://t1.uc.ltmcdn.com/images/8/1/0/img_como_organizar_una_excursion_a_la_montana_20018_600.jpg);
+  background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEG7cX43Pfp0KtfN03NHQLIdAK_VbYUr6UZQ&usqp=CAU);
   background-repeat: no-repeat;
   background-size: cover;
-  color: white;
+  color: black;
   opacity: 90%;
 }
 
@@ -162,4 +162,8 @@
 
 .card {
   border: 5px solid red;
+}
+
+.bg-mymeetings {
+  background-color: rgb(8, 4, 51);
 }
