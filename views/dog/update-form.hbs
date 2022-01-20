@@ -16,21 +16,21 @@
         <h1 class="h3 mb-3 font-weight-normal">Update your dog!</h1>
         <h3>Name</h3><input type="text" name="name" class="form-control" value="{{editDog.name}}" required="">
         <h3>Sex</h3><select type="text" name="sex" class="form-control" value="{{editDog.sex}}" required="">
-          <option selected disabled>Sex</option>
+          <option disabled>Sex</option>
           <option>Female</option>
           <option>Male</option>
         </select>
         <h3>Race</h3><input type="text" name="race" class="form-control" value="{{editDog.race}}" required="">
         <h3>Size</h3>
         <select type="text" name="size" class="form-control" value="{{editDog.size}}" required="">
-          <option selected disabled>Size</option>
+          <option disabled>Size</option>
           <option>Small</option>
           <option>Medium</option>
           <option>Large</option>
           <option>Giant</option>
         </select>
         <h3>Age</h3><select type="number" name="age" class="form-control" value="{{editDog.age}}" required="">
-          <option selected disabled>Age</option>
+          <option disabled>Age</option>
           <option>1</option>
           <option>2</option>
           <option>3</option>
@@ -52,6 +52,8 @@
           <option>19</option>
           <option>20</option>
         </select>
+        <h3>Image</h3>
+        <input type="text" name="image" class="form-control" placeholder="Add an image" value="{{editDog.image}}">
         <button class="btn btn-lg btn-primary btn-block sign-btn-home " type="submit">Update</button>
         {{#if errorMessage}}
         <p>{{errorMessage}}</p>

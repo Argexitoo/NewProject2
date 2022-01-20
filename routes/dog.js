@@ -27,14 +27,14 @@ function dogRoutes() {
 
   router.post('/profile-newdog', async (req, res, next) => {
     const userId = req.session.currentUser._id;
-    const { name, sex, race, size, age } = req.body;
+    const { name, sex, race, size, age, image } = req.body;
     try {
       if (!name || !sex || !race || !size || !age) {
         return res.render('./dog/profile-newdog', {
           errorMessage: 'Complete all fields',
         });
       }
-      const dog = await Dog.create({ name, sex, race, size, age, owner: userId });
+      const dog = await Dog.create({ name, sex, race, size, age, image, owner: userId });
       res.redirect('/mydogs');
     } catch (e) {
       next(e);
@@ -45,6 +45,7 @@ function dogRoutes() {
     const { id } = req.params;
     try {
       const editDog = await Dog.findById(id);
+      console.log(editDog);
       res.render('./dog/update-form', { id, editDog });
     } catch (e) {
       next(e);
@@ -53,9 +54,9 @@ function dogRoutes() {
 
   router.post('/profile-mydog/:id/edit', async (req, res, next) => {
     const { id } = req.params;
-    const { name, sex, race, size, age } = req.body;
+    const { name, sex, race, size, age, image } = req.body;
     try {
-      const editDog = await Dog.findByIdAndUpdate(id, { name, sex, race, size, age }, { new: true });
+      const editDog = await Dog.findByIdAndUpdate(id, { name, sex, race, size, age, image }, { new: true });
       return res.redirect('/mydogs');
     } catch (e) {
       next(e);

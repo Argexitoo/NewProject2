@@ -45,6 +45,7 @@ const dogSchema = new mongoose.Schema({
       '20',
     ],
   },
+  image: { type: String },
   owner: { type: mongoose.Schema.ObjectId, ref: 'User' },
 });
 
