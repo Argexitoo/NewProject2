@@ -42,8 +42,17 @@ function authRoutes() {
       const saltRounds = 10;
       const salt = bcryptjs.genSaltSync(saltRounds);
       const newPassword = bcryptjs.hashSync(password, salt);
+      const newPassword2 = bcryptjs.hashSync(password2, salt);
 
-      const user = await User.create({ email, password: newPassword, password2, location, age, nickname, name });
+      const user = await User.create({
+        email,
+        password: newPassword,
+        password2: newPassword2,
+        location,
+        age,
+        nickname,
+        name,
+      });
       res.redirect('/log-in');
     } catch (e) {
       next(e);
