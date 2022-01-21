@@ -80,31 +80,26 @@
 /* ///// */
 
 .card-dog {
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: 0.3s;
-  border-radius: 5px;
-  height: 17%;
-  margin-bottom: 10px;
+  background-color: rgb(238, 238, 238);
+  padding: 10px;
+  margin: 10px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.container-dog {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  margin-top: 20px;
 }
 
 .card:hover {
   box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.container-dog {
-  padding: 2px 16px;
-  position: relative;
-  left: 230px;
-  bottom: 140px;
-}
-
 .quote {
   font-size: 10px;
-}
-
-.dog-tools {
-  position: relative;
-  top: 10px;
 }
 
 .meeting-tools {

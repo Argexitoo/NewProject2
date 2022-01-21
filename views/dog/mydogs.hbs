@@ -59,29 +59,31 @@
 {{#each foundDogs}}
 <div class="card-dog">
     {{#if this.image}}
-    <img src="{{this.image}}" alt="Avatar" width="227px" height="auto">
+    <img src="{{this.image}}" alt="Avatar" width="350px" height="auto">
     {{else}}
     <img src="https://cdn.pixabay.com/photo/2016/02/19/15/46/labrador-retriever-1210559__340.jpg" alt="Avatar"
-        width="227px" height="auto" style="width:50%">
+        width="350px" height="auto" style="width:50%">
     {{/if}}
     <div class="container-dog">
-        <h4><b>{{this.name}}</b>
-            <div class="quote">
-                <aside>
-                    <i>
-                        {{this.race}},{{this.sex}},{{this.age}} year
-                    </i>
-                </aside>
-                <div class="dog-tools">
-                    <a href="/profile-mydog/{{id}}/edit">
-                        <img src="./assets/edit.png" alt="" width="30px">
-                    </a>
-                    <a href="/profile-mydog/{{id}}/delete"><img src="./assets/delete.png" alt="" width="30px"></a>
+        <div>
+            <h4><b>{{this.name}}</b>
+                <div class="quote">
+                    <p><i>
+                            {{this.race}},{{this.sex}},{{this.age}} year
+                        </i></p>
                 </div>
-            </div>
+        </div>
 
-            <form action="/profile-mydog" method="get">
-            </form>
+        <div class="dog-tools">
+            <a href="/profile-mydog/{{id}}/edit">
+                <img src="./assets/edit.png" alt="" width="30px">
+            </a>
+            <a href="/profile-mydog/{{id}}/delete"><img src="./assets/delete.png" alt="" width="30px"></a>
+        </div>
     </div>
+
+    <form action="/profile-mydog" method="get">
+    </form>
+</div>
 </div>
 {{/each}}
