@@ -90,11 +90,11 @@ function meetingRoutes() {
 
   router.get('/meeting/:id', async (req, res, next) => {
     const { id } = req.params;
-    const user = req.session.currentUser;
+    // Això no cal
+    // const user = req.session.currentUser;
     try {
-      const meeting = await Meeting.findById(id).populate('usersJoined');
-      console.log(meeting);
-      res.render('./meeting/meeting', { meeting, owner: user });
+      const meeting = await Meeting.findById(id).populate('usersJoined').populate('owner');
+      res.render('./meeting/meeting', { meeting });
     } catch (e) {
       next(e);
     }
